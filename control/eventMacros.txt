@@ -6,17 +6,17 @@
 #______________________________________________________________________________________________________
 
 # Settings
-!include ..\add-ons\settings.txt
+#!include ..\add-ons\settings.txt
 
 # Rodex
 #!include ..\add-ons\rodex\auto-receive.txt
-!include ..\add-ons\rodex\zeny.txt
-!include ..\add-ons\rodex\cards.txt
+#!include ..\add-ons\rodex\zeny.txt
+#!include ..\add-ons\rodex\cards.txt
 #!include ..\add-ons\rodex\equips.txt
 #!include ..\add-ons\rodex\storage.txt
 
 # Utilities
-!include ..\add-ons\utilities\events\kafra-savepoints.txt
+#!include ..\add-ons\utilities\events\kafra-savepoints.txt
 #!include ..\add-ons\utilities\events\priv-msg.txt
 #!include ..\add-ons\utilities\events\random-look.txt
 #!include ..\add-ons\utilities\events\grinding-spot.txt
@@ -31,4 +31,4 @@
 #!include ..\add-ons\quest\2-2\rogue.txt
 
 # Meus Macros
-!include ..\add-ons\meusmacros\arruaceiro1a99loki.txt
+#!include ..\add-ons\meusmacros\arruaceiro1a99loki.txt
