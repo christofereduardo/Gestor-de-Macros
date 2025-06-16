@@ -1,0 +1,15 @@
+useSelf_skill Detoxify {
+	lvl 1
+	sp > 10%
+	whenStatusActive EFST_HEALTHSTATE_POISON
+}
+ 
+attackSkillSlot Steal {
+	lvl 10
+	dist 1.5
+	sp > 15
+	maxUses 3
+	maxAttempts 3
+	inLockOnly 1
+	notInTown 1
+}

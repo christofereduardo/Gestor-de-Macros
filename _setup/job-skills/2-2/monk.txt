@@ -1,0 +1,66 @@
+useSelf_skill Heal {
+	lvl 10
+	hp < 80%
+	timeout 5
+}
+
+useSelf_skill Blessing {
+	lvl 10
+	sp > 64
+	whenStatusInactive Blessing
+	notInTown 1
+	timeout 60
+}
+
+useSelf_skill Increase AGI {
+	lvl 10
+	sp > 45
+	whenStatusInactive Increase AGI
+	notWhileSitting 1
+	timeout 60
+}
+
+useSelf_skill Angelus {
+	lvl 10
+	sp > 50
+	whenStatusInactive Angelus
+	notInTown 1
+}
+
+attackSkillSlot Ruwach {
+	lvl 1
+	target_whenStatusActive Hide, Cloaking
+	target Sleeper
+	whenStatusInactive Ruwach
+	isSelfSkill 1
+}
+
+partySkill Heal {
+	lvl 10
+	sp > 10%
+	target_hp < 80%
+}
+
+partySkill Increase AGI {
+	lvl 10
+	sp > 45
+	target_whenStatusInactive Increase AGI
+	timeout 60
+}
+
+partySkill Blessing {
+	lvl 10
+	sp > 64
+	target_whenStatusInactive Blessing
+	timeout 60
+}
+
+attackComboSlot MO_CHAINCOMBO {
+	lvl 5
+	dist 1.5
+	sp > 30
+	notMonsters Red Plant, Green Plant, Blue Plant
+	afterSkill MO_TRIPLEATTACK
+	waitBeforeUse 0.3
+	isSelfSkill 1
+}

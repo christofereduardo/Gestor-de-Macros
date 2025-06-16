@@ -1,0 +1,30 @@
+useSelf_skill Twohand Quicken {
+    lvl 10
+    sp > 50%
+    whenStatusInactive Twohand Quicken
+    notInTown 1
+    onAction attack
+    timeout 1000
+}
+
+attackSkillSlot Bowling Bash {
+    lvl 10
+    sp > 20%
+    aggressives >= 3
+    monsters
+    inLockOnly 1
+    timeout 5
+    maxUses 5
+}
+
+attackSkillSlot Pierce {
+    lvl 10
+    dist 1..3
+    sp > 10
+    aggressives >= 3  # change value here
+    inLockOnly 1
+    timeout 5
+    monsters
+    maxAttempts 
+    maxUses 4
+}
