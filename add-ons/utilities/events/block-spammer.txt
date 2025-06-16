@@ -1,0 +1,21 @@
+automacro BlockSpammer_PubMsg {
+	PubMsg /(([Bb]+[Uu]+[Yy]+)|([Ss]+[Ee]+[Ll]+))*.*([Zz]+[Ee]+[Nn]+[Yy]+)*.*([Gg]+[Oo]+[Ll]+[Dd]+)*.*([Bb]+[Oo]+[Nn]+[Uu]+[Ss]+)*.*/
+	call CheckSpamCount_PubMsg
+	timeout 30
+}
+
+automacro BlockSpammer_PrivMsg {
+	PrivMsg /(([Bb]+[Uu]+[Yy]+)|([Ss]+[Ee]+[Ll]+))*.*([Zz]+[Ee]+[Nn]+[Yy]+)*.*([Gg]+[Oo]+[Ll]+[Dd]+)*.*([Bb]+[Oo]+[Nn]+[Uu]+[Ss]+)*.*/
+	call CheckSpamCount_PrivMsg
+	timeout 30
+}
+
+macro CheckSpamCount_PubMsg {
+	log === Blocking Spammer : $.PubMsgLastName ===
+	do ignore 1 $.PubMsgLastName
+}
+
+macro CheckSpamCount_PrivMsg {
+	log === Blocking Spammer : $.PrivMsgLastName ===
+	do ignore 1 $.PrivMsgLastName
+}

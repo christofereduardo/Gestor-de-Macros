@@ -1,0 +1,194 @@
+###########################################################################
+######################## UP 1-99 Rogue by Lok1zer0 ########################
+######################## ------- V1.0 ROla ------- ########################
+######################## --- Use com moderação --- ########################
+###########################################################################
+
+
+
+automacro nomapa {
+	BaseLevel < 9
+	JobLevel == 1
+	run-once 1
+	call setup
+}
+
+macro setup {
+	do conf autoTalkCont 1
+	do conf skillsAddAuto 1
+	do conf skillsAddAuto_list NV_BASIC 9, TF_DOUBLE 10, TF_MISS 10, TF_STEAL 10, TF_HIDING 4, TF_POISON 5, RG_SNATCHER 10, SM_SWORD 10, RG_STEALCOIN 10, RG_COMPULSION 5
+	do conf statsAddAuto 1
+	do conf statsAddAuto_list 10 str, 10 dex, 10 agi, 20 str, 20 dex, 20 agi, 40 str, 40 agi, 30 dex, 60 agi, 50 dex, 50 str, 80 agi, 70 str, 90 agi, 70 dex
+	do conf statsAddAuto_dontUseBonus 1
+	do conf statsAdd_over_99 0
+	do conf itemsMaxWeight_sellOrStore 70
+	release vaiporing
+}
+
+automacro vaiporing {
+	BaseLevel = 1 .. 7
+	JobLevel = 1 .. 10
+	run-once 1
+	call poring
+}
+
+macro poring {
+	do conf lockMap prt_fild08
+	do conf route_randomWalk 1
+	do conf attackAuto 2
+	do conf storageAuto none
+	do conf storageAuto_npc none
+	do conf sellAuto 1
+	do conf sellAuto_npc payon 159 96
+	release vaiesporos
+}
+
+
+automacro vaiesporos {
+	BaseLevel = 3 .. 27
+	run-once 1
+	call esporo
+}
+
+macro esporo {
+	do conf lockMap pay_fild08
+	do conf route_randomWalk 1
+	do conf attackAuto 2
+	do conf storageAuto none
+	do conf storageAuto_npc none
+	do conf sellAuto 1
+	do conf sellAuto_npc payon 159 96
+	release vaibigfoot
+}
+
+automacro vaibigfoot {
+	BaseLevel = 28 .. 44
+	run-once 1
+	call bigfoot
+}
+
+macro bigfoot {
+	do conf lockMap pay_fild07
+	do conf route_randomWalk 1
+	do conf attackAuto 2
+	do conf storageAuto none
+	do conf storageAuto_npc none
+	do conf sellAuto 1
+	release vaiwolf
+	}
+
+automacro vaiwolf {
+	BaseLevel = 44 .. 71
+	JobLevel < 40
+	JobID 6
+	run-once 1
+	call wolf
+	}
+
+macro wolf {
+	do conf lockMap mjolnir_07
+	do conf route_randomWalk 1
+	do conf attackAuto 2
+	do conf teleportAuto_minAggressivesInLock 3
+	release vaipetite 
+}
+
+
+
+automacro vaipetite {
+	BaseLevel = 71 .. 98
+	run-once 1
+	overrideAI 1
+	exclusive 1
+	call salvageffen
+}
+
+macro salvageffen {
+	do autosell
+	do conf lockmap morocc_in 138 70
+	do move morocc_in 138 70
+	do talknpc 141 67
+	pause 2
+	do store
+	pause 2
+	do buy 9 1
+	pause 2
+	do eq Damascus [1]
+	pause 2
+	do conf lockMap geffen 116 68
+	do move geffen 116 68
+	do talknpc 120 62 r0
+	release petite
+}
+
+macro petite {
+	do conf lockMap gef_fild06
+	do conf route_randomWalk 1
+	do conf attackAuto 2
+	do conf sellAuto_npc geffen 193 152
+}
+
+
+automacro pegoudez {
+	JobLevel = 10
+	JobID 0
+	run-once 1
+	exclusive 1
+	call virarGatuno
+}
+
+macro virarGatuno {
+	do conf attackAuto 0
+	do conf lockMap payon 166 172
+	do move payon 166 172
+	pause 5
+	do talknpc 169 172
+	pause 2
+	do talk resp 1
+	pause 2
+	do talk resp 0
+	pause 2
+	do talk resp 5
+	pause 10
+	do eq Faca [3]
+	do conf attackAuto 2
+	call salvapayon
+}
+
+macro salvapayon {
+    do conf lockMap payon 179 104
+	do conf route_avoidWalls 1
+	do move payon 179 104
+	do talknpc 181 104 r0
+	call esporo
+}
+
+
+automacro pegouquarenta {
+	JobLevel = 40
+	JobID 6
+	run-once 1
+	exclusive 1
+	call virarRogue
+}
+
+macro virarRogue {
+	do conf attackAuto 0
+	do conf lockMap moc_fild13 35 171
+	do move moc_fild13 35 171
+	do talknpc 32 171 r3
+	pause 10
+	do conf lockMap morocc 147 272
+	do move morocc 147 272
+	do talknpc 148 272
+	pause 2
+	do talk resp 1
+	pause 2
+	do talk resp 1
+	pause 2
+	do talk resp 2
+	pause 10
+	do eq Faca [3]
+	do conf attackAuto 2
+	call salvamorroc
+}

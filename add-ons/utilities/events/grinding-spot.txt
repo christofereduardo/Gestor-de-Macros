@@ -1,0 +1,76 @@
+#_______________________________________________________________#
+# 										  						
+# CHANGE GRINDING SPOT      	  							
+#   															
+# NOTICE : Do not forget to set your lockMap lvl are based 		
+#		   between this e.g (base lvl 10 >= betwen <= 25)		
+#_______________________________________________________________#
+
+automacro SetGrindingSpot {
+	BaseLevel >= 10
+	JobIDNot 0
+	exclusive 1
+	macro_delay 1
+	timeout 1800
+	call ChangeGrindMaps
+}
+
+macro ChangeGrindMaps {
+	$currentJob = $.job
+	
+	switch ($currentJob) {
+		case (== Thief) {
+			$LVL20 = prt_fild07
+			$LVL40 = pay_fild05
+			$LVL60 = mjolnir_08
+		}
+		case (== Rogue) {
+			$LVL90 = pay_dun02
+		}
+		case (== Assassin) {
+			$LVL90 = mjolnir_10
+		}
+		case (== Acolyte) {
+			$LVL20 = pay_fild03 
+			$LVL40 = pay_fild06
+			$LVL60 = mjolnir_08
+		}
+		case (== Priest) {
+			$LVL90 = gef_fild11
+		}
+		case (== Monk) {
+			$LVL90 = mjolnir_10
+		}
+		case (== Merchant) {
+			$LVL20 = pay_fild06 
+			$LVL40 = mjolnir_08
+			$LVL60 = mjolnir_08
+		}
+		else {
+			$LVL20 = none 
+			$LVL40 = none
+			$LVL60 = none 
+			$LVL90 = none
+		}
+	}
+	
+	switch ($.BaseLevelLast) {
+		case (<= 20) {
+			do conf lockMap $LVL20
+		}
+		case (<= 40) {
+			do conf lockMap $LVL40			
+		}
+		case (<= 60) {
+			do conf lockMap $LVL60			
+		}
+		case (<= 90) {
+			do conf lockMap $LVL90
+			lock SetGrindingSpot
+		}
+		else {
+			log SetGrindingSpot: You have reached max level congratulations!
+			lock SetGrindingSpot
+		}
+	}
+}

@@ -1,0 +1,120 @@
+#_____________________________________________________________________
+#
+# Commands
+#_____________________________________________________________________
+
+macro setReceiver1 {
+	$receiver = Dedim du Lula
+	do conf rodexReceiver $receiver
+}
+
+macro setReceiver2 {
+	$receiver = none
+	do conf rodexReceiver $receiver
+}
+
+macro setConfig {
+	[
+		do conf -f killSteal 1
+		do conf pauseCharServer &rand(1,2)
+		do conf pauseMapServer &rand(1,2)
+		do conf attackAuto 2
+		do conf route_randomWalk 1
+		do conf allowedMaps none
+		do conf allowedMaps_reaction 0
+		do conf attackAuto_inLockOnly 2
+		do conf dcOnServerClose 1
+		do conf dcOnServerShutDown 1
+		do conf partyAuto 2
+		do conf partyAutoShare 1
+		do conf partyAutoShareItem 1
+		do conf partyAutoShareItemDiv 1
+		do conf showDomain 0
+		do conf squelchDomains ai_attack, attacked, attackedMiss, console, skill, selfSkill, exp, attackMon, attackMonMiss, drop, teleport, useTeleport, emotion, info, list
+		do conf verbose 0
+		do conf verboseDomains none
+		do conf logDead 0
+		do conf logConsole 0
+		do conf sleepTime 150000			
+	]
+}
+
+macro setStats {
+	switch ($.job) {
+		case (== Acolyte) {	
+			[
+				do conf statsAddAuto 1
+				do conf statsAddAuto_list 20 agi, 20 str, 20 dex, 10 int, 40 agi, 30 str, 40 dex, 30 vit, 30 int, 60 str, 80 agi
+				do conf statsAddAuto_dontUseBonus 1
+				do conf statsAdd_over_99 1
+				
+				do conf skillsAddAuto 1
+				do conf skillsAddAuto_list AL_HEAL 5, AL_INCAGI 5, AL_DP 5, AL_BLESSING 10, AL_INCAGI 10, AL_RUWACH 1, AL_TELEPORT 2, AL_DEMONBANE 5, AL_WARP 2, AL_ANGELUS 10 
+			]
+		}
+		case (== Priest) {
+			[
+				do conf statsAddAuto 1
+				do conf statsAddAuto_list 20 agi, 20 str, 20 dex, 10 int, 40 agi, 30 str, 40 dex, 30 vit, 30 int, 60 str, 80 agi
+				do conf statsAddAuto_dontUseBonus 1
+				do conf statsAdd_over_99 1
+				
+				do conf skillsAddAuto 1 
+				do conf skillsAddAuto_list PR_MACEMASTERY 10, PR_IMPOSITIO 5, PR_KYRIE 10
+			]	
+		}
+		case (== Monk) {
+			[
+				do conf statsAddAuto 1
+				do conf statsAddAuto_list 20 agi, 20 str, 20 dex, 10 int, 40 agi, 30 str, 40 dex, 30 vit, 30 int, 60 str, 80 agi
+				do conf statsAddAuto_dontUseBonus 1
+				do conf statsAdd_over_99 1
+				
+				do conf skillsAddAuto 1 
+				do conf skillsAddAuto_list none
+			]
+		}
+		case (== Rogue) {
+			[
+				do conf statsAddAuto 1
+				do conf statsAddAuto_list 20 agi, 20 str, 20 dex, 40 agi, 30 str, 40 dex, 30 vit, 60 str, 80 agi, 20 luk
+				do conf statsAddAuto_dontUseBonus 1
+				do conf statsAdd_over_99 1
+				
+				do conf skillsAddAuto 1 
+				do conf skillsAddAuto_list RG_SNATCHER 10
+			]
+		}
+		else {
+			do conf statsAddAuto 0
+			do conf statsAddAuto_list none
+			do conf statsAddAuto_dontUseBonus 0
+			do conf statsAdd_over_99 0
+			
+			do conf skillsAddAuto 0
+			do conf skillsAddAuto_list none
+		}
+	}
+}
+
+macro setTargets {
+	switch ($.map) {
+		case (== gef_fild11) {
+			[
+				do mconf Mace Goblin 1 0 1
+				do mconf Axe Goblin 1 0 1
+				do mconf Dagger Goblin 1 0 1
+				do mconf Archer Goblin 1 0 1
+			]
+		}
+		case (== mjolnir_10) {
+			[
+				do mconf Argiope 1 0 1
+				do mconf Poring	0 0 0
+			]
+		}
+		else {
+			stop
+		}
+	}
+}

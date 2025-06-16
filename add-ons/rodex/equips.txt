@@ -1,0 +1,70 @@
+automacro RodexEquips {
+	Zeny >= 2500
+	exclusive 1
+	macro_delay 2
+	timeout 3600
+	call MailEquips
+}
+
+macro MailEquips {
+	$equips = &InventoryType(equip)
+	@equipList = &split(',', $equips)
+	
+	if ($equipList[0] == -1) goto noEquips
+	if (&config (rodexReceiver) == $.name) goto dontSend
+	if (&config (rodexReceiver) != $.name) goto sendIt
+	
+	:noEquips
+		log No equips available
+		stop
+	:dontSend
+		log You are the current rodex receiver
+		lock RodexEquips
+		stop
+	:sendIt
+		# set details
+		$receiver = &config (rodexReceiver)
+		$mailTitle = TITLE
+		$mailBody = TITLE
+		$receiver = SEU NOME
+		
+		# open rodex
+		do rodex open
+		do rodex write $receiver
+		do rodex settarget $receiver 
+		do rodex settitle $mailTitle
+		do rodex setbody $mailBody
+		do rodex setzeny 0
+		
+		if (@equipList > 5) goto max
+		if (@equipList < 5) goto min
+		
+		:max
+			$i = 0
+			$maxItem = 5				
+			
+			$i = 0;
+			while ($i < $maxItem) {
+				log Putting Equip with Index: $equipList[$i]
+				do rodex add $equipList[$i] 1
+				$i++
+			}
+			
+			do rodex send
+			do rodex close
+			stop
+		:min
+			$i = 0
+			$maxItem = @equipList				
+			
+			$i = 0;
+			while ($i < $maxItem) {
+				log Putting Equip with Index: $equipList[$i]
+				do rodex add $equipList[$i] 1
+				$i++
+			}
+			
+			do rodex send
+			do rodex close
+			stop
+}
