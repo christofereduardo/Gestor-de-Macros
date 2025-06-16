@@ -1,4 +1,4 @@
 useSelf_item Asa de Borboleta de Iniciante {
     timeout 10
-    inMap prt_in, gon_dun, moc_para01
+    inMap prt_in, gon_dun, moc_para01, moc_para20
 }
