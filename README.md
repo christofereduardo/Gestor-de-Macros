@@ -1,7 +1,7 @@
 # Gestor-de-Macros
 Instruções:
 
-Encontre o bloco SetRodexReceiver em settings.txt dentro da pasta control/add-ons e defina o $keyValue para o receptor.
+Encontre o bloco `SetRodexReceiver`  em settings.txt dentro da pasta control/add-ons e defina o $keyValue para o receptor.
 Inclusões do arquivo:
 
 add-ons
