@@ -32,3 +32,4 @@
 
 # Meus Macros
 #!include ..\add-ons\meusmacros\arruaceiro1a99loki.txt
+#!include ..\add-ons\meusmacros\asadeborboleta.txt
