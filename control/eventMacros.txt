@@ -1,0 +1,34 @@
+#______________________________________________________________________________________________________
+# 
+# Made by Anthony : https://github.com/iamtonysoft/								   
+# Accepting Donations : https://www.paypal.me/iamtonysoft											   
+# Macro Collection																	   	   
+#______________________________________________________________________________________________________
+
+# Settings
+!include ..\add-ons\settings.txt
+
+# Rodex
+#!include ..\add-ons\rodex\auto-receive.txt
+!include ..\add-ons\rodex\zeny.txt
+!include ..\add-ons\rodex\cards.txt
+#!include ..\add-ons\rodex\equips.txt
+#!include ..\add-ons\rodex\storage.txt
+
+# Utilities
+!include ..\add-ons\utilities\events\kafra-savepoints.txt
+#!include ..\add-ons\utilities\events\priv-msg.txt
+#!include ..\add-ons\utilities\events\random-look.txt
+#!include ..\add-ons\utilities\events\grinding-spot.txt
+#!include ..\add-ons\utilities\events\teleport.txt
+#!include ..\add-ons\utilities\events\block-spammer.txt
+#!include ..\add-ons\utilities\events\holy-water.txt
+
+# Quest
+#!include ..\add-ons\quest\novice.txt
+#!include ..\add-ons\quest\1-1\thief.txt
+#!include ..\add-ons\quest\1-1\acolyte.txt
+#!include ..\add-ons\quest\2-2\rogue.txt
+
+# Meus Macros
+!include ..\add-ons\meusmacros\arruaceiro1a99loki.txt
